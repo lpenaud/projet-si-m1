@@ -1,0 +1,33 @@
+{
+  "name": "projet-si-m1",
+  "version": "1.0.0",
+  "description": "Master's 1 projet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lpenaud/projet-si-m1.git"
+  },
+  "keywords": [
+    "react",
+    "express",
+    "neo4j",
+    "mongodb",
+    "mysql"
+  ],
+  "author": "lpenaud <l.penaud@zaclys.net>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lpenaud/projet-si-m1/issues"
+  },
+  "homepage": "https://github.com/lpenaud/projet-si-m1#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.2",
+    "typescript": "^3.7.5"
+  }
+}
