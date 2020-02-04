@@ -1,10 +1,11 @@
 import * as express from "express";
 import router from "./routes";
+import { hostname, port } from "./config";
+import bodyParser = require("body-parser");
 
-const port = Number(process.env.PORT) || 8080;
-const hostname = process.env.hostname || "localhost"
 const app = express();
 
+app.use(bodyParser());
 app.use('/api', router);
 
 app.listen(port, hostname, () => {

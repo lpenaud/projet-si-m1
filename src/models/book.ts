@@ -11,17 +11,17 @@ export interface BookModel extends Book, Document {
 }
 
 const schema = new Schema({
-    titre: {
+    title: {
         required: true,
         type: String,
     },
-    auteur: {
+    author: {
         required: true,
         type: String,
     },
     genre: String
 });
 
-const book = model<BookModel>("Livre", schema);
+const Book = model<BookModel>("Livre", schema);
 
-export default book;
+export default Book;
