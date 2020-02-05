@@ -4,3 +4,6 @@ client/node_modules
 
 # dot env
 .env
+
+# build
+build
