@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "outDir": "build",
+        "newLine": "LF",
+        "lib": [
+            "ES6"
+        ],
+        "module": "CommonJS"
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "node_modules",
+        "client"
+    ]
+}
