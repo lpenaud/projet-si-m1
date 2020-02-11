@@ -1,10 +1,5 @@
+import { Book } from "../../lib/models";
 import { Schema, Document, model } from "mongoose";
-
-export interface Book {
-    title: string;
-    author: string;
-    genre: string;
-}
 
 export interface BookModel extends Book, Document {
 
