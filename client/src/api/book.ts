@@ -7,7 +7,7 @@ const connection = connect({
 });
 
 export async function getBooks(): Promise<Array<Book>> {
-    const res = await connection.get("/");
+    const res = await connection.get<Book[]>("/");
     if (res.status > 300) {
         throw new HttpError(res);
     }
@@ -15,7 +15,7 @@ export async function getBooks(): Promise<Array<Book>> {
 }
 
 export async function createBook(book: Book): Promise<Book> {
-    const res = await connection.post("/");
+    const res = await connection.post<Book>("/");
     if (res.status > 300) {
         throw new HttpError(res);
     }
@@ -30,7 +30,7 @@ export async function deleteBook(id: string): Promise<void> {
 }
 
 export async function getBook(id: string): Promise<Book> {
-    const res = await connection.get(`/${id}`);
+    const res = await connection.get<Book>(`/${id}`);
     if (res.status > 300) {
         throw new HttpError(res);
     }
