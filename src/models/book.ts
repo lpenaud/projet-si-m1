@@ -17,6 +17,6 @@ const schema = new Schema({
     genre: String
 });
 
-const Book = model<BookModel>("Livre", schema);
+const Book = model<BookModel>("Books", schema);
 
 export default Book;
