@@ -18,5 +18,5 @@ curlBook() {
     curlApi "$1" book
 }
 
-curlBook "title=Le Guide du voyageur galactique&author=John Ronald Reuel Tolkien&genre=Fantasy"
+curlBook "title=Le Guide du voyageur galactique&author=Douglas Adams&genre=Fantasy"
 curlBook "title=Le Seigneur des anneaux&author=John Ronald Reuel Tolkien&genre=Science-fiction"
