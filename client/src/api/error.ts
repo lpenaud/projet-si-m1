@@ -7,7 +7,7 @@ export class HttpError extends Error {
         super(...params);
         Error.captureStackTrace(this, HttpError);
         this.name = res.statusText;
-        this.message = res.data;
+        this.message = `${res.status} - ${res.statusText}\n${res.data}`;
         this.code = res.status;
     }
 }
