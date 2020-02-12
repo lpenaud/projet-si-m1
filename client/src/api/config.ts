@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosInstance } from "axios";
 
-axios.defaults.baseURL = "http://localhost:3048/api";
+axios.defaults.baseURL = "http://localhost:8080/api";
 
 export function connect(config?: AxiosRequestConfig): AxiosInstance {
     if (!config) {
