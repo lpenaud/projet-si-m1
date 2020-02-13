@@ -2,20 +2,17 @@ import React from "react";
 import HeroFoot from "./bulma/hero/hero-foot";
 import Tabs from "./bulma/tabs";
 import Container from "./container";
+import { Link } from "react-router-dom";
 
 export default class Footer extends React.Component {
   render() {
     return (
       <HeroFoot>
-        <Tabs isBoxed isFullWidth renderAs="nav">
+        <Tabs isBoxed isFullWidth>
           <Container>
             <ul>
-              <li className="is-active"><a>Overview</a></li>
-              <li><a>Modifiers</a></li>
-              <li><a>Grid</a></li>
-              <li><a>Elements</a></li>
-              <li><a>Components</a></li>
-              <li><a>Layout</a></li>
+              <li className="is-active"><Link to="/">Home</Link></li>
+              <li><Link to="/test">Test</Link></li>
             </ul>
           </Container>
         </Tabs>

@@ -7,14 +7,6 @@ interface NavbarBurgerProps {
 }
 
 export default class NavbarBurger extends React.Component<NavbarBurgerProps> {
-  static defaultProps: Partial<NavbarBurgerProps> = {
-    isActive: true,
-  }
-
-  constructor(props: NavbarBurgerProps) {
-    super({ ...NavbarBurger.defaultProps, ...props });
-  }
-
   render() {
     const className = classNames({
       'navbar-burger': true,

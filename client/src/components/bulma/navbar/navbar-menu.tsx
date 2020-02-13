@@ -2,18 +2,10 @@ import React from "react";
 import classNames from "classnames";
 
 interface NavbarMenuProps {
-  isActive: boolean;
+  isActive?: boolean;
 }
 
 export default class NavbarMenu extends React.Component<NavbarMenuProps> {
-  static defaultProps: NavbarMenuProps = {
-    isActive: false,
-  }
-
-  constructor(props: NavbarMenuProps) {
-    super({ ...NavbarMenu.defaultProps, ...props });
-  }
-
   render() {
     const className = classNames({
       'navbar-menu': true,

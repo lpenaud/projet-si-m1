@@ -1,35 +1,25 @@
 import React from "react";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Root from "components/routes/root";
+import Test from "components/routes/test";
 
 export default function App() {
   return (
-    <section className="hero is-dark is-fullheight">
-      <Header />
-      <div className="hero-body">
-        <div className="container has-text-centered">
-          <p className="title">
-            Title
-          </p>
-          <p className="subtitle">
-            Subtitle
-          </p>
-        </div>
-      </div>
-      <Footer />
-    </section>
-    // <div>
-    //   <Hero size="fullheight" color="primary" >
-    //     <Hero.Head renderAs="header">
-    //       <div className="bd-notification is-info">Header</div>
-    //     </Hero.Head>
-    //     <Hero.Body>
-    //       Body
-    //     </Hero.Body>
-    //     <Hero.Footer>
-    //       <div className="bd-notification is-danger">Footer</div>
-    //     </Hero.Footer>
-    //   </Hero>
-    // </div>
+    <Router>
+      <section className="hero is-dark is-fullheight">
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <Root />
+          </Route>
+          <Route exact path="/test">
+            <Test />
+          </Route>
+        </Switch>
+        <Footer />
+      </section>
+    </Router>
   );
 }
