@@ -9,6 +9,6 @@
     "watch": [
         "src"
     ],
-    "exec": "npm start",
+    "exec": "yarn ts-node src/index.ts",
     "ext": "ts"
 }

@@ -7,9 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
-    "start": "ts-node src/index.ts",
+    "start": "nodemon",
     "start:client": "cd client && npm start",
-    "watch": "nodemon"
+    "start:build": "node build/index.js"
   },
   "repository": {
     "type": "git",
