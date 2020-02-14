@@ -8,7 +8,7 @@ import Test from "components/routes/test";
 export default function App() {
   return (
     <Router>
-      <section className="hero is-dark is-fullheight">
+      <section className="hero is-primary is-fullheight">
         <Header />
         <Switch>
           <Route exact path="/">

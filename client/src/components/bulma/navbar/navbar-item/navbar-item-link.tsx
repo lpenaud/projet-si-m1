@@ -9,7 +9,7 @@ interface NavbarItemLinkProps extends NavbarItemProps {
 export default class NavbarItemLink extends NavbarItem<NavbarItemLinkProps> {
   render(): React.ReactNode {
     return (
-      <NavLink to={this.props.to} className={this.defaultClassName}>
+      <NavLink exact to={this.props.to} className={this.defaultClassName} activeClassName="is-active">
         {this.props.children}
       </NavLink>
     )

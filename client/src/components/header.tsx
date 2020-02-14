@@ -7,7 +7,6 @@ import NavbarEnd from "./bulma/navbar/navbar-end";
 import NavbarBrand from "./bulma/navbar/navbar-brand";
 import NavbarBurger from "./bulma/navbar/navbar-burger";
 import { updateState } from "helpers/components";
-import NavbarItemA from "./bulma/navbar/navbar-item/navbar-item-a";
 import NavbarItemLink from "./bulma/navbar/navbar-item/navbar-item-link";
 
 interface HeaderState {
@@ -34,7 +33,7 @@ export default class Header extends React.Component<{}, HeaderState> {
           <NavbarBrand>
             <NavbarItemDiv>
               <NavbarItemDiv>
-                <img src="https://bulma.io/images/bulma-logo.png" alt="Logo"/>
+                <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo"/>
               </NavbarItemDiv>
             </NavbarItemDiv>
             <NavbarBurger onClick={this.burgerOnClick} isActive={this.state.burgerIsActive} />
