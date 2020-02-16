@@ -7,7 +7,8 @@
         "client"
     ],
     "watch": [
-        "src"
+        "src",
+        "lib"
     ],
     "exec": "yarn ts-node src/index.ts",
     "ext": "ts"
