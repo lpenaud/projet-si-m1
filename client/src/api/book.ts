@@ -15,7 +15,7 @@ export async function getBooks(): Promise<Array<Book>> {
 }
 
 export async function createBook(book: Book): Promise<Book> {
-    const res = await connection.post<Book>("/");
+    const res = await connection.post<Book>("/", book);
     if (res.status > 300) {
         throw new HttpError(res);
     }

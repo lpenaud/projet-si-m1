@@ -8,6 +8,7 @@ import NavbarBrand from "./bulma/navbar/navbar-brand";
 import NavbarBurger from "./bulma/navbar/navbar-burger";
 import { updateState } from "helpers/components";
 import NavbarItemLink from "./bulma/navbar/navbar-item/navbar-item-link";
+import routes from "./routes";
 
 interface HeaderState {
   burgerIsActive: boolean;
@@ -40,8 +41,13 @@ export default class Header extends React.Component<{}, HeaderState> {
           </NavbarBrand>
           <NavbarMenu isActive={this.state.burgerIsActive}>
             <NavbarEnd>
-              <NavbarItemLink to="/">Home</NavbarItemLink>
-              <NavbarItemLink to="/test">Test</NavbarItemLink>
+              {
+                routes.map((route, i) => (
+                  <NavbarItemLink to={route.path} key={i}>
+                    {route.label}
+                  </NavbarItemLink>
+                ))
+              }
             </NavbarEnd>
           </NavbarMenu>
         </Navbar>

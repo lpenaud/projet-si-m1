@@ -1,18 +1,62 @@
 import React from "react";
+import Control from "components/bulma/form/control/control";
+import Input, { InputStates } from "components/bulma/form/control/input";
+import Label from "components/bulma/form/label";
+import Field from "components/bulma/form/field";
+import Container from "components/container";
+import { Book } from "../../../../lib/models";
+import { getBooks } from "api/book";
 
-export default class Test extends React.Component {
+interface TestState extends Omit<Book, "_id"> {
+  readOnly: boolean;
+}
+
+export default class Test extends React.Component<{}, TestState> {
+
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      author: "Auteur",
+      title: "Titre",
+      genre: "Genre",
+      readOnly: false,
+    };
+  }
+
+  componentDidMount() {
+    getBooks().then((books) => {
+      const state = { ...this.state, ...books[0] };
+      this.setState(state);
+    });
+  }
+
+  changed(state: InputStates) {
+    console.log(state)
+  }
+
   render() {
     return (
-      <div className="hero-body">
-      <div className="container has-text-centered">
-        <p className="title">
-          Test
-        </p>
-        <p className="subtitle">
-          Test Subtitle
-        </p>
-      </div>
-    </div>
+      // TODO: FormContainer
+      <Container>
+        <Field key="title">
+          <Label>Titre</Label>
+          <Control>
+            <Input type="text" valueChanged={this.changed} initialValue={this.state.title} readOnly={this.state.readOnly} />
+          </Control>
+        </Field>
+        <Field key="author">
+          <Label>Auteur</Label>
+          <Control>
+            <Input type="text" valueChanged={this.changed} initialValue={this.state.author} readOnly={this.state.readOnly} />
+          </Control>
+        </Field>
+        <Field key="genre">
+          <Label>Genre</Label>
+          <Control>
+            <Input type="text" valueChanged={this.changed} initialValue={this.state.genre} readOnly={this.state.readOnly} />
+          </Control>
+        </Field>
+      </Container>
     )
   }
 }

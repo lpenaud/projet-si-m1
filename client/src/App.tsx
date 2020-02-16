@@ -1,25 +1,18 @@
 import React from "react";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Root from "components/routes/root";
-import Test from "components/routes/test";
+import { BrowserRouter as Router } from "react-router-dom";
+import Hero from "components/bulma/hero/hero";
+import Body from "components/body";
 
 export default function App() {
   return (
     <Router>
-      <section className="hero is-primary is-fullheight">
+      <Hero mainColor="is-primary" height="is-fullheight">
         <Header />
-        <Switch>
-          <Route exact path="/">
-            <Root />
-          </Route>
-          <Route exact path="/test">
-            <Test />
-          </Route>
-        </Switch>
+        <Body />
         <Footer />
-      </section>
+      </Hero>
     </Router>
   );
 }
