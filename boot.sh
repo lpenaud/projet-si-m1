@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ $# -ne 2 ]
 then
@@ -12,6 +12,7 @@ curlApi() {
     local urlApi="$url/api/$2"
     echo curl -d \"$1\" -X POST $urlApi
     curl -d "$1" -X POST $urlApi
+    echo ""
 }
 
 curlBook() {
