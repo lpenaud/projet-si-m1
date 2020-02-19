@@ -6,7 +6,8 @@
         "lib": [
             "ES6"
         ],
-        "module": "CommonJS"
+        "module": "CommonJS",
+        "experimentalDecorators": true,
     },
     "include": [
         "src"
