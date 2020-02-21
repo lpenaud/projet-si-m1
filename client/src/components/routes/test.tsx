@@ -4,10 +4,10 @@ import Input, { InputStates } from "components/bulma/form/control/input";
 import Label from "components/bulma/form/label";
 import Field from "components/bulma/form/field";
 import Container from "components/container";
-import { Book } from "../../../../lib/models";
-import { getBooks } from "api/book";
+import { IBook } from "../../../../lib/models";
+import { getBooks } from "../../api/book";
 
-interface TestState extends Omit<Book, "_id"> {
+interface TestState extends Omit<IBook, "_id"> {
   readOnly: boolean;
 }
 
@@ -24,8 +24,8 @@ export default class Test extends React.Component<{}, TestState> {
   }
 
   componentDidMount() {
-    getBooks().then((books) => {
-      const state = { ...this.state, ...books[0] };
+    getBooks().then((IBooks) => {
+      const state = { ...this.state, ...IBooks[0] };
       this.setState(state);
     });
   }

@@ -1,21 +1,21 @@
 import { HttpError } from "./error";
-import { Book } from "../../../lib/models";
+import { IBook } from "../../../lib/models";
 import { connect } from "./config";
 
 const connection = connect({
-    baseURL: "/book",
+    baseURL: "/IBook",
 });
 
-export async function getBooks(): Promise<Array<Book>> {
-    const res = await connection.get<Book[]>("/");
+export async function getBooks(): Promise<Array<IBook>> {
+    const res = await connection.get<IBook[]>("/");
     if (res.status > 300) {
         throw new HttpError(res);
     }
     return res.data;
 }
 
-export async function createBook(book: Book): Promise<Book> {
-    const res = await connection.post<Book>("/", book);
+export async function createBook(IBook: IBook): Promise<IBook> {
+    const res = await connection.post<IBook>("/", IBook);
     if (res.status > 300) {
         throw new HttpError(res);
     }
@@ -29,8 +29,8 @@ export async function deleteBook(id: string): Promise<void> {
     }
 }
 
-export async function getBook(id: string): Promise<Book> {
-    const res = await connection.get<Book>(`/${id}`);
+export async function getBook(id: string): Promise<IBook> {
+    const res = await connection.get<IBook>(`/${id}`);
     if (res.status > 300) {
         throw new HttpError(res);
     }

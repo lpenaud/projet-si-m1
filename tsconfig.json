@@ -1,10 +1,10 @@
 {
     "compilerOptions": {
-        "target": "es6",
+        "target": "ESNext",
         "outDir": "build",
         "newLine": "LF",
         "lib": [
-            "ES6"
+            "ESNext"
         ],
         "module": "CommonJS",
         "experimentalDecorators": true,

@@ -1,7 +1,7 @@
-import { Book } from "../../lib/models";
+import { IBook } from "../../lib/models";
 import { Schema, Document, model } from "mongoose";
 
-export interface BookModel extends Book, Document {
+export interface BookModel extends IBook, Document {
 
 }
 

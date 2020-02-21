@@ -1,23 +1,29 @@
-import { Table, Model, Column, Is } from "sequelize-typescript";
-import { validateEmail } from "../helpers/models";
+import { Table, Model, Column, AutoIncrement, PrimaryKey, Unique, NotNull, DataType, IsEmail, AllowNull } from "sequelize-typescript";
+import { ILearner } from "../../lib/models";
 
 @Table
-export default class Learner extends Model<Learner> {
+export default class Learner extends Model<Learner> implements ILearner {
 
-  @Column({
-    allowNull: true,
-  })
+  @AutoIncrement
+  @PrimaryKey
+  @Column(DataType.INTEGER)
+  id: number;
+
+  @AllowNull(false)
+  @NotNull
+  @Column(DataType.STRING)
   name: string;
 
-  @Column({
-    allowNull: true,
-  })
+  @AllowNull(false)
+  @NotNull
+  @Column(DataType.STRING)
   lastName: string;
 
-  @Is(validateEmail)
-  @Column({
-    allowNull: true,
-    unique: true,
-  })
+
+  @AllowNull(false)
+  @NotNull
+  @Unique
+  @IsEmail
+  @Column(DataType.STRING)
   email: string;
 }
