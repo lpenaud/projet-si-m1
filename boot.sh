@@ -15,9 +15,8 @@ curlApi() {
     echo ""
 }
 
-curlBook() {
-    curlApi "$1" book
+curlLearner() {
+    curlApi "$1" learner
 }
 
-curlBook "title=Le Guide du voyageur galactique&author=Douglas Adams&genre=Fantasy"
-curlBook "title=Le Seigneur des anneaux&author=John Ronald Reuel Tolkien&genre=Science-fiction"
+curlLearner "name=Patrick&lastName=Sebastien&email=patrick.sebastien@email.com"
