@@ -1,12 +1,13 @@
 import { Router } from "express";
-import BookRouter from "./book";
+import LearnerRouter from "./learner";
 
 const router = Router();
 
 router
-    .get("/", (req, res) => {
-        res.send("Hello");
-    })
-    .use("/book", BookRouter);
+  .get("/", (req, res) => {
+    res.send("API is up");
+  })
+  .use("/learner", LearnerRouter)
+;
 
 export default router;

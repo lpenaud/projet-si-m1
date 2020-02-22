@@ -19,12 +19,6 @@ export interface ITrainer {
   name: string;
   lastName: string;
   email: string;
-  formations?: IFormation[];
-}
-
-export interface IFormation {
-  id: string;
-  nom: string;
 }
 
 //TODO: Referent - Correspondance avec la table module dans Neo4J :)
