@@ -1,7 +1,10 @@
 import { Table, Model, Column, AutoIncrement, PrimaryKey, Unique, NotNull, DataType, IsEmail, AllowNull } from "sequelize-typescript";
 import { ILearner } from "../../lib/models";
 
-@Table
+@Table({
+  charset: "utf8",
+  timestamps: false,
+})
 export default class Learner extends Model<Learner> implements ILearner {
 
   @AutoIncrement

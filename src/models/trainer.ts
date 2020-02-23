@@ -1,7 +1,10 @@
 import { Table, Column, AutoIncrement, PrimaryKey, NotNull, Unique, Model, DataType, IsEmail, AllowNull } from "sequelize-typescript";
 import { ITrainer } from "../../lib/models";
 
-@Table
+@Table({
+  charset: "utf8",
+  timestamps: false,
+})
 export default class Trainer extends Model<Trainer> implements ITrainer {
 
   @AutoIncrement

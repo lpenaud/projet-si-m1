@@ -11,7 +11,11 @@ const sequelize = new Sequelize({
     Learner,
     Trainer
   ],
-  ...mariaConfig
+  database: mariaConfig.database,
+  username: mariaConfig.username,
+  password: mariaConfig.password,
+  host: mariaConfig.host,
+  port: mariaConfig.port,
 });
 
 setupMaria(sequelize);

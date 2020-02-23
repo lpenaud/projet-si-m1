@@ -21,9 +21,11 @@ export function checkFields(obj: {}, ...fields: string[]): string[] {
 
 export function createCheckFieldMiddleware(...fields: string[]): (req: Request, res: Response, next: NextFunction) => void {
   return (req, res, next): void => {
+    console.log(fields, req.body);
     const missing = checkFields(req.body, ...fields);
     if (missing.length === 0) {
       next();
+      return;
     }
     next(new HttpError(422, `Missing fields: ${missing.join()}`));
   };

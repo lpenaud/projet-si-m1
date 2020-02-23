@@ -10,6 +10,10 @@ export interface DatabaseConfig {
   password: string;
 }
 
+export interface MariaConfig extends DatabaseConfig {
+  sync: string;
+}
+
 // Server config
 export const port = Number(process.env.PORT) || 8080;
 export const hostname = process.env.HOSTNAME || "0.0.0.0";
@@ -25,10 +29,11 @@ export const mongoConfig: DatabaseConfig = {
 };
 
 // MariaDB config
-export const mariaConfig: DatabaseConfig = {
+export const mariaConfig: MariaConfig = {
   database: process.env.MARIA_BD || "SI",
   username: process.env.MARIA_USER || "root",
   password: process.env.MARIA_PASSWORD || "",
   host: process.env.MARIA_HOST || "localhost",
   port: Number(process.env.MARIA_PORT) || 3306,
+  sync: process.env.MARIA_SYNC || "",
 };
