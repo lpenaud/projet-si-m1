@@ -2,10 +2,14 @@ import { Router } from "express";
 import LearnerRouter from "./learner";
 
 const router = Router();
+const startingTime = Date.now();
 
 router
   .get("/", (req, res) => {
-    res.send("API is up");
+    res.json({
+      up: true,
+      startingTime,
+    });
   })
   .use("/learner", LearnerRouter)
 ;

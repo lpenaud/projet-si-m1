@@ -2,7 +2,7 @@ import Learner from "./learner";
 import { Sequelize } from "sequelize-typescript";
 import { connect } from "mongoose";
 import Trainer from "./trainer";
-import { mariaConfig, mongoConfig } from "../config";
+import { mariaConfig, mongoConfig, timezone } from "../config";
 import { setupMaria, createMongoUrl } from "./helpers";
 
 const sequelize = new Sequelize({
@@ -11,11 +11,10 @@ const sequelize = new Sequelize({
     Learner,
     Trainer
   ],
-  database: mariaConfig.database,
-  username: mariaConfig.username,
-  password: mariaConfig.password,
-  host: mariaConfig.host,
-  port: mariaConfig.port,
+  dialectOptions: {
+    timezone,
+  },
+  ...mariaConfig
 });
 
 setupMaria(sequelize);

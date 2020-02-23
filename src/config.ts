@@ -10,14 +10,13 @@ export interface DatabaseConfig {
   password: string;
 }
 
-export interface MariaConfig extends DatabaseConfig {
-  sync: string;
-}
+type env = "local" | "production";
 
 // Server config
 export const port = Number(process.env.PORT) || 8080;
 export const hostname = process.env.HOSTNAME || "0.0.0.0";
-export const debug = Boolean(process.env.DEBUG) || true;
+export const nodeEnv: env = process.env.NODE_ENV as env || "local";
+export const timezone = process.env.TIMEZONE || "Etc/GMT-1"
 
 // Mongo config
 export const mongoConfig: DatabaseConfig = {
@@ -29,11 +28,11 @@ export const mongoConfig: DatabaseConfig = {
 };
 
 // MariaDB config
-export const mariaConfig: MariaConfig = {
+export const mariaConfig: DatabaseConfig & { logging: boolean } = {
   database: process.env.MARIA_BD || "SI",
   username: process.env.MARIA_USER || "root",
   password: process.env.MARIA_PASSWORD || "",
   host: process.env.MARIA_HOST || "localhost",
   port: Number(process.env.MARIA_PORT) || 3306,
-  sync: process.env.MARIA_SYNC || "",
+  logging: process.env.MARIA_LOG === "true",
 };

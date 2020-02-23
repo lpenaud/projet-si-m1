@@ -1,25 +1,17 @@
 import { Sequelize } from "sequelize-typescript";
-import { DatabaseConfig, mariaConfig } from "../../config";
+import { DatabaseConfig, nodeEnv } from "../../config";
 import { URL } from "url";
 
 export async function setupMaria(s: Sequelize): Promise<void> {
   try {
-    switch (mariaConfig.sync) {
-      case "force":
-        await s.sync({ force: true });
-        break;
-
-      case "alter":
-        await s.sync({ alter: true })
-        break;
-
-      default:
-        await s.authenticate();
-        break;
+    if (nodeEnv === "local") {
+      await s.sync({ alter: true })
+    } else {
+      await s.authenticate();
     }
-    console.log("Connection has been established successfully.")
+    console.log("Connection has been established successfully.");
   } catch (error) {
-    console.error('Unable to connect to the database:', error)
+    console.error('Unable to connect to the database:', error);
   }
 }
 
