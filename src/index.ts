@@ -8,7 +8,7 @@ import { errorHandler } from "./helpers/middleware";
 const app = express();
 
 app
-  .use(cors({ allowedHeaders: "http://localhost:3000" }))
+  .use(cors({ origin: /localhost/, methods: "*" }))
   .use(express.urlencoded({ extended: true }))
   .use(express.json())
   .use(morgan(nodeEnv === environments.local ? "dev" : "common"))
