@@ -24,7 +24,7 @@ export interface DatabaseConfig {
 
 // MongoDB config
 export const mongoConfig: DatabaseConfig = {
-  host: process.env.MONGO_HOSTNAME || "localhost",
+  host: process.env.MONGO_HOST || "localhost",
   port: Number(process.env.MONGO_PORT) || 27017,
   database: process.env.MONGO_DB || "SI",
   username: process.env.MONGO_USER || "",
@@ -33,10 +33,10 @@ export const mongoConfig: DatabaseConfig = {
 
 // MariaDB config
 export const mariaConfig: DatabaseConfig & { logging: boolean } = {
-  database: process.env.MARIA_BD || "SI",
-  username: process.env.MARIA_USER || "root",
-  password: process.env.MARIA_PASSWORD || "",
   host: process.env.MARIA_HOST || "localhost",
   port: Number(process.env.MARIA_PORT) || 3306,
+  database: process.env.MARIA_DB || "SI",
+  username: process.env.MARIA_USER || "root",
+  password: process.env.MARIA_PASSWORD || "",
   logging: process.env.MARIA_LOG === "true",
 };
