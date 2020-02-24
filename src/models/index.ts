@@ -1,9 +1,10 @@
-import Learner from "./learner";
 import { Sequelize } from "sequelize-typescript";
 import { connect } from "mongoose";
-import Trainer from "./trainer";
 import { mariaConfig, mongoConfig, timezone } from "../config";
-import { setupMaria, createMongoUrl } from "./helpers";
+import { setupMaria, createMongoUrl } from "../helpers/models";
+import Learner from "./learner";
+import Trainer from "./trainer";
+import Lesson from "./lesson";
 
 const sequelize = new Sequelize({
   dialect: "mariadb",
@@ -18,9 +19,10 @@ const sequelize = new Sequelize({
 });
 
 setupMaria(sequelize);
-connect(createMongoUrl(mongoConfig), { useNewUrlParser: true });
+connect(createMongoUrl(mongoConfig), { useNewUrlParser: true, useUnifiedTopology: true });
 
 export {
   Learner,
-  Trainer
-}
+  Trainer,
+  Lesson,
+};

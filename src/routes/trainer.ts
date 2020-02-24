@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { Learner } from "../models";
+import { Trainer } from "../models";
 import { ILearner } from "../../lib/models";
 import { Dictionary, IdParam, checkFields, idParamRegex } from "../helpers/routes";
 import MissingFieldsError from "../helpers/http-error/missing-fields";
@@ -9,14 +9,14 @@ const router = Router();
 router
   .get("/", async (req, res, next) => {
     try {
-      res.json(await Learner.findAll());
+      res.json(await Trainer.findAll());
     } catch (error) {
       next(error);
     }
   })
   .put<IdParam, {}, Partial<Omit<ILearner, "id">>>(idParamRegex, async (req, res, next) => {
     try {
-      await Learner.update(req.body, {
+      await Trainer.update(req.body, {
         where: {
           id: Number(req.params.id)
         },
@@ -28,7 +28,7 @@ router
   })
   .delete<IdParam>(idParamRegex, async (req, res, next) => {
     try {
-      await Learner.destroy({
+      await Trainer.destroy({
         where: {
           id: Number(req.params.id)
         }
@@ -45,7 +45,7 @@ router
       return;
     }
     try {
-      const learner = await Learner.create(req.body);
+      const learner = await Trainer.create(req.body);
       res.status(201).json(learner);
     } catch (error) {
       next(error);
