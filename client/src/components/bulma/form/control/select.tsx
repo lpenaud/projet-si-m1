@@ -1,22 +1,7 @@
 import React from "react";
-import { MainColor, Size, InputState, InputType } from "components/bulma/modifiers";
+import { SelectProps, SelectStates } from "components/bulma/modifiers";
 import { getClassName } from "helpers/components";
 import classNames from "classnames";
-
-interface SelectStates {
-  value: string;
-}
-
-interface SelectProps {
-  type: InputType;
-  color?: MainColor;
-  size?: Size;
-  state?: InputState;
-  isRounded?: boolean;
-  disabled?: boolean;
-  isMultiple?: boolean;
-  valueChanged?: (state: Readonly<SelectStates>) => void;
-}
 
 export default class Select extends React.Component<SelectProps, SelectStates> {
   constructor(props: SelectProps) {

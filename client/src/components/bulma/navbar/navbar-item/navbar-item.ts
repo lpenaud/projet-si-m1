@@ -1,9 +1,6 @@
 import { Component, ReactNode } from "react";
 import classNames from "classnames";
-
-export interface NavbarItemProps {
-  isActive?: boolean;
-}
+import { NavbarItemProps } from "components/bulma/modifiers";
 
 export default abstract class NavbarItem<P extends NavbarItemProps = NavbarItemProps, S = {}, SS = any> extends Component<P, S, SS> {  
   get defaultClassName(): string {

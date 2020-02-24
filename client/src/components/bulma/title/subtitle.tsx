@@ -1,10 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import { TitleLevel } from "../modifiers";
-
-interface SubtitleProps {
-  level?: TitleLevel;
-}
+import { SubtitleProps } from "../modifiers";
 
 export default class Subtitle extends React.Component<SubtitleProps> {
   render() {

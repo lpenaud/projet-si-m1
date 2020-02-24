@@ -1,10 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-
-interface NavbarBurgerProps {
-  isActive?: boolean;
-  onClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-}
+import { NavbarBurgerProps } from "../modifiers";
 
 export default class NavbarBurger extends React.Component<NavbarBurgerProps> {
   render() {

@@ -1,10 +1,7 @@
 import React from "react";
-import NavbarItem, { NavbarItemProps } from "./navbar-item";
 import { NavLink } from "react-router-dom";
-
-interface NavbarItemLinkProps extends NavbarItemProps {
-  to: string;
-}
+import NavbarItem from "./navbar-item";
+import { NavbarItemLinkProps } from "components/bulma/modifiers";
 
 export default class NavbarItemLink extends NavbarItem<NavbarItemLinkProps> {
   render(): React.ReactNode {

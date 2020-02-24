@@ -1,9 +1,6 @@
 import React from "react";
-import NavbarItem, { NavbarItemProps } from "./navbar-item";
-
-interface NavbarItemAProps extends NavbarItemProps {
-  href: string;
-}
+import NavbarItem from "./navbar-item";
+import { NavbarItemAProps } from "components/bulma/modifiers";
 
 export default class NavbarItemA extends NavbarItem<NavbarItemAProps> {
   render(): React.ReactNode {

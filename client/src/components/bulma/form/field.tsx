@@ -1,10 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-
-interface FieldProp {
-  isGrouped?: boolean;
-  hasAddons?: boolean;
-}
+import { FieldProp } from "../modifiers";
 
 export default class Field extends React.Component<FieldProp> {
   render() {

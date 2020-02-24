@@ -1,10 +1,6 @@
 import React from "react";
-import { ControlState } from "../../modifiers";
+import { ControlProps } from "../../modifiers";
 import { getClassName } from "helpers/components";
-
-interface ControlProps {
-  state?: ControlState;
-}
 
 export default class Control extends React.Component<ControlProps> {
   render() {

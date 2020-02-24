@@ -1,15 +1,10 @@
 import React from "react";
-import { Size, TextAlignment } from "./modifiers";
 import { getClassName } from "helpers/components";
+import { TextProps } from "./modifiers";
 
-interface ContentProps {
-  alignement?: TextAlignment
-  size?: Size;
-}
-
-export default class Content extends React.Component<ContentProps> {
+export default class Content extends React.Component<TextProps> {
   render() {
-    const className = getClassName(this.props, ["alignement", "size"], "content");
+    const className = getClassName(this.props, ["alignment", "size"], "content");
     return (
       <div className={className}>
         {this.props.children}

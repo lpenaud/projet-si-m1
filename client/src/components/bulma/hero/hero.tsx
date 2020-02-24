@@ -1,16 +1,6 @@
 import React from "react";
-import { MainColor } from "../modifiers";
 import { getClassName } from "helpers/components";
-
-type HeroSize = "is-medium"
-  | "is-large"
-  | "is-fullheight"
-;
-
-interface HeroProps {
-  mainColor?: MainColor;
-  height?: HeroSize;
-}
+import { HeroProps } from "../modifiers";
 
 export default class Hero extends React.Component<HeroProps> {
   render() {

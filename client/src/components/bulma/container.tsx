@@ -1,12 +1,8 @@
 import React from "react";
-import { TextAlignment } from "./bulma/modifiers";
 import { getClassName } from "helpers/components";
+import { TextProps } from "./modifiers";
 
-interface ContainerProps {
-  alignment?: TextAlignment;
-}
-
-export default class Container extends React.Component<ContainerProps> {
+export default class Container extends React.Component<TextProps> {
   render() {
     const className = getClassName(this.props, ["alignment"], "container");
     return (

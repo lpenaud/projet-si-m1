@@ -1,9 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-
-interface NavbarMenuProps {
-  isActive?: boolean;
-}
+import { NavbarMenuProps } from "../modifiers";
 
 export default class NavbarMenu extends React.Component<NavbarMenuProps> {
   render() {

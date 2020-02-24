@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "components/container";
+import Container from "components/bulma/container";
 import Title from "components/bulma/title/title";
 import Subtitle from "components/bulma/title/subtitle";
 

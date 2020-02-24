@@ -1,11 +1,6 @@
 import React from "react";
-import { TitleLevel } from "../modifiers";
+import { TitleProps } from "../modifiers";
 import classNames from "classnames";
-
-interface TitleProps {
-  level?: TitleLevel;
-  isSpaced?: boolean;
-}
 
 export default class Title extends React.Component<TitleProps> {
   render() {

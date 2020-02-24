@@ -1,5 +1,5 @@
 import Root from "components/routes/root";
-import Test from "components/routes/test";
+import Trainer from "components/routes/trainer";
 import { ComponentType } from "react";
 
 interface Route {
@@ -16,8 +16,8 @@ const routes: Route[] = [
   },
   {
     path: "/test",
-    component: Test,
-    label: "Test",
+    component: Trainer,
+    label: "Learner",
   }
 ];
 

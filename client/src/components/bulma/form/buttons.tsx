@@ -1,11 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import { ButtonsAlignment } from "../modifiers";
-
-interface ButtonsProps {
-  hasAddons?: boolean;
-  alignment?: ButtonsAlignment;
-}
+import { ButtonsProps } from "../modifiers";
 
 export default class Buttons extends React.Component<ButtonsProps> {
   render() {
