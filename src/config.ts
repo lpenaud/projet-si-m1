@@ -2,6 +2,18 @@ import { config } from "dotenv";
 
 config();
 
+// Available Environments
+export const environments: {[key: string]: symbol} = {
+  local: Symbol("local"),
+  production: Symbol("production"),
+};
+
+// Server config
+export const port = Number(process.env.PORT) || 8080;
+export const hostname = process.env.HOSTNAME || "0.0.0.0";
+export const nodeEnv = environments[process.env.NODE_ENV || "local"];
+export const timezone = process.env.TIMEZONE || "Etc/GMT-1";
+
 export interface DatabaseConfig {
   host: string;
   port: number;
@@ -10,15 +22,7 @@ export interface DatabaseConfig {
   password: string;
 }
 
-type env = "local" | "production";
-
-// Server config
-export const port = Number(process.env.PORT) || 8080;
-export const hostname = process.env.HOSTNAME || "0.0.0.0";
-export const nodeEnv: env = process.env.NODE_ENV as env || "local";
-export const timezone = process.env.TIMEZONE || "Etc/GMT-1"
-
-// Mongo config
+// MongoDB config
 export const mongoConfig: DatabaseConfig = {
   host: process.env.MONGO_HOSTNAME || "localhost",
   port: Number(process.env.MONGO_PORT) || 27017,
