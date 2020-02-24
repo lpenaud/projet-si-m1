@@ -12,6 +12,6 @@ export default class Footer extends React.Component {
           </p>
         </Content>
       </HeroFoot>
-    )
+    );
   }
 }

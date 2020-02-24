@@ -8,8 +8,8 @@ export interface NavbarItemProps {
 export default abstract class NavbarItem<P extends NavbarItemProps = NavbarItemProps, S = {}, SS = any> extends Component<P, S, SS> {  
   get defaultClassName(): string {
     return classNames({
-      'navbar-item': true,
-      'is-active': this.props.isActive
+      "navbar-item": true,
+      "is-active": this.props.isActive
     });
   }
   

@@ -19,6 +19,6 @@ export default class Hero extends React.Component<HeroProps> {
       <section className={className}>
         {this.props.children}
       </section>
-    )
+    );
   }
 }

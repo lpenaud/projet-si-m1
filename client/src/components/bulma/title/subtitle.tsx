@@ -9,13 +9,13 @@ interface SubtitleProps {
 export default class Subtitle extends React.Component<SubtitleProps> {
   render() {
     const className = classNames({
-      'subtitle': true,
+      "subtitle": true,
       [`is-${this.props.level}`]: this.props.level,
     });
     return (
       <p className={className}>
         {this.props.children}
       </p>
-    )
+    );
   }
 }

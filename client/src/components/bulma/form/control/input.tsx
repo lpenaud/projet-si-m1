@@ -37,7 +37,7 @@ export default class Input extends React.Component<InputProps, InputStates> {
       if (this.props.valueChanged) {
         this.props.valueChanged(this.state);
       }
-    })
+    });
   }
 
   componentDidUpdate(prevProps: Readonly<InputProps>) {
@@ -50,8 +50,8 @@ export default class Input extends React.Component<InputProps, InputStates> {
     const className = classNames(
         getClassName(this.props, ["color", "size", "state"], "input"),
         {
-          'is-static': this.props.isStatic,
-          'is-rounded': this.props.isRounded,
+          "is-static": this.props.isStatic,
+          "is-rounded": this.props.isRounded,
         }
     );
     const value = this.state.value;

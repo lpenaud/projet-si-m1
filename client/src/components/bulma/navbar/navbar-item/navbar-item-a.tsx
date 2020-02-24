@@ -11,6 +11,6 @@ export default class NavbarItemA extends NavbarItem<NavbarItemAProps> {
       <a href={this.props.href} className={this.defaultClassName}>
         {this.props.children}
       </a>
-    )
+    );
   }
 }

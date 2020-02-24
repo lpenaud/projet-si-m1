@@ -6,6 +6,6 @@ export default class NavBar extends React.Component {
       <div className="navbar">
         {this.props.children}
       </div>
-    )
+    );
   }
 }

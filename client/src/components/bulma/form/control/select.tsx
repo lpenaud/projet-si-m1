@@ -37,8 +37,8 @@ export default class Select extends React.Component<SelectProps, SelectStates> {
     const className = classNames(
         getClassName(this.props, ["color", "size", "state"], "select"),
         {
-          'is-multiple': this.props.isMultiple,
-          'is-rounded': this.props.isRounded,
+          "is-multiple": this.props.isMultiple,
+          "is-rounded": this.props.isRounded,
         }
     );
     return (

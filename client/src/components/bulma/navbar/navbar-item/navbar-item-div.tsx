@@ -7,6 +7,6 @@ export default class NavbarItemDiv extends NavbarItem {
       <div className={this.defaultClassName}>
         {this.props.children}
       </div>
-    )
+    );
   }
 }

@@ -9,8 +9,8 @@ interface NavbarBurgerProps {
 export default class NavbarBurger extends React.Component<NavbarBurgerProps> {
   render() {
     const className = classNames({
-      'navbar-burger': true,
-      'is-active': this.props.isActive,
+      "navbar-burger": true,
+      "is-active": this.props.isActive,
     });
     return (
       <div className={className} aria-label="menu" aria-expanded="false" onClick={this.props.onClick}>
@@ -18,6 +18,6 @@ export default class NavbarBurger extends React.Component<NavbarBurgerProps> {
         <span></span>
         <span></span>
       </div>
-    )
+    );
   }
 }

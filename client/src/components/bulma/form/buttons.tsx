@@ -10,14 +10,14 @@ interface ButtonsProps {
 export default class Buttons extends React.Component<ButtonsProps> {
   render() {
     const className = classNames({
-      'buttons': true,
-      'has-addons': this.props.hasAddons,
+      "buttons": true,
+      "has-addons": this.props.hasAddons,
       [`${this.props.alignment}`]: this.props.alignment,
     });
     return (
       <div className={className}>
         {this.props.children}
       </div>
-    )
+    );
   }
 }

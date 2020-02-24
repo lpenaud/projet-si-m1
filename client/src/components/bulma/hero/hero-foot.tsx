@@ -6,6 +6,6 @@ export default class HeroFoot extends React.Component {
       <div className="hero-foot">
         {this.props.children}
       </div>
-    )
+    );
   }
 }

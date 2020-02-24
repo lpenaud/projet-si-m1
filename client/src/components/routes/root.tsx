@@ -10,6 +10,6 @@ export default class Root extends React.Component {
         <Title>Title</Title>
         <Subtitle>Subtitle</Subtitle>
       </Container>
-    )
+    );
   }
 }

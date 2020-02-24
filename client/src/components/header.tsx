@@ -52,6 +52,6 @@ export default class Header extends React.Component<{}, HeaderState> {
           </NavbarMenu>
         </Navbar>
       </HeroHead>
-    )
+    );
   }
 }

@@ -8,11 +8,11 @@ interface ControlProps {
 
 export default class Control extends React.Component<ControlProps> {
   render() {
-    const className = getClassName(this.props, ["state"], "control")
+    const className = getClassName(this.props, ["state"], "control");
     return (
       <div className={className}>
         {this.props.children}
       </div>
-    )
+    );
   }
 }

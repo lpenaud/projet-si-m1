@@ -13,6 +13,6 @@ export default class Container extends React.Component<ContainerProps> {
       <div className={className}>
         {this.props.children}
       </div>
-    )
+    );
   }
 }

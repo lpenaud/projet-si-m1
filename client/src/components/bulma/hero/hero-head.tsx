@@ -6,6 +6,6 @@ export default class HeroHead extends React.Component {
       <div className="hero-head">
         {this.props.children}
       </div>
-    )
+    );
   }
 }

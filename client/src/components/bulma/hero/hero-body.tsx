@@ -6,6 +6,6 @@ export default class HeroBody extends React.Component {
       <div className="hero-body">
         {this.props.children}
       </div>
-    )
+    );
   }
 }

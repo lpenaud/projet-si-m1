@@ -12,6 +12,6 @@ export default class NavbarItemLink extends NavbarItem<NavbarItemLinkProps> {
       <NavLink exact to={this.props.to} className={this.defaultClassName} activeClassName="is-active">
         {this.props.children}
       </NavLink>
-    )
+    );
   }
 }

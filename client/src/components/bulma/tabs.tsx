@@ -9,14 +9,14 @@ interface TabsProps {
 export default class Tabs extends React.Component<TabsProps> {
   render() {
     const className = classNames({
-      'tabs': true,
-      'is-boxed': this.props.isBoxed,
-      'is-fullwidth': this.props.isFullWidth,
-    })
+      "tabs": true,
+      "is-boxed": this.props.isBoxed,
+      "is-fullwidth": this.props.isFullWidth,
+    });
     return (
       <div className={className}>
         {this.props.children}
       </div>
-    )
+    );
   }
 }

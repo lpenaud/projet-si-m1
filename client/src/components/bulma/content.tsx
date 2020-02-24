@@ -14,6 +14,6 @@ export default class Content extends React.Component<ContentProps> {
       <div className={className}>
         {this.props.children}
       </div>
-    )
+    );
   }
 }

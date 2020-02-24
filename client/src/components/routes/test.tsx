@@ -31,7 +31,7 @@ export default class Test extends React.Component<{}, TestState> {
   }
 
   changed(state: InputStates) {
-    console.log(state)
+    console.log(state);
   }
 
   render() {
@@ -57,6 +57,6 @@ export default class Test extends React.Component<{}, TestState> {
           </Control>
         </Field>
       </Container>
-    )
+    );
   }
 }

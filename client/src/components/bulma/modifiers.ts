@@ -36,10 +36,10 @@ export type ButtonType = "submit"
 ;
 
 export type ButtonState = InputState
-  | 'is-active'
-  | 'is-loading'
+  | "is-active"
+  | "is-loading"
 ;
 
-export type ButtonsAlignment = 'is-centered'
-  | 'is-right'
+export type ButtonsAlignment = "is-centered"
+  | "is-right"
 ;
