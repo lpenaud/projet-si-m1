@@ -1,5 +1,6 @@
-import { Table, Column, AutoIncrement, PrimaryKey, NotNull, Unique, Model, DataType, IsEmail, AllowNull } from "sequelize-typescript";
-import { ITrainer } from "../../lib/models";
+import { Table, Column, AutoIncrement, PrimaryKey, NotNull, Unique, Model, DataType, IsEmail, AllowNull, HasMany } from "sequelize-typescript";
+import { ITrainer, ILesson } from "../../lib/models";
+import Lesson from "./lesson";
 
 @Table({
   charset: "utf8",
@@ -28,4 +29,7 @@ export default class Trainer extends Model<Trainer> implements ITrainer {
   @Unique
   @Column(DataType.STRING)
   email: string;
+
+  @HasMany(() => Lesson)
+  lessons: ILesson[];
 }

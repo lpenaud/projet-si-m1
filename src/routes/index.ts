@@ -1,7 +1,7 @@
 import { Router } from "express";
 import LearnerRouter from "./learner";
-import LessonRouter from "./lesson";
 import TrainerRouter from "./trainer";
+import LessonRouter from "./lesson";
 
 const router = Router();
 const startingTime = Date.now();

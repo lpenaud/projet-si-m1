@@ -17,7 +17,7 @@ const routes: Route[] = [
   {
     path: "/test",
     component: Trainer,
-    label: "Learner",
+    label: "Formateur",
   }
 ];
 

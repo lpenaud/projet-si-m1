@@ -9,7 +9,7 @@ const connection = connect({
 
 export async function getTrainers() {
   const res = await connection.get<ITrainer[]>("/");
-  if (res.status >= 300) {
+  if (res.status >= 400) {
     throw new HttpError(res);
   }
   return res.data;
@@ -21,14 +21,14 @@ export async function updateTrainer(trainer: WithRequired<ITrainer, "id">) {
     lastName: trainer.lastName,
     name: trainer.name
   } as Omit<ITrainer, "id">);
-  if (res.status >= 300) {
+  if (res.status >= 400) {
     throw new HttpError(res);
   }
 }
 
 export async function newTrainer(trainer: Omit<ITrainer, "id">) {
   const res = await connection.post<ITrainer>("/", trainer);
-  if (res.status >= 300) {
+  if (res.status >= 400) {
     throw new HttpError(res);
   }
   return res.data;
@@ -36,7 +36,7 @@ export async function newTrainer(trainer: Omit<ITrainer, "id">) {
 
 export async function deleteTrainer(trainerId: number) {
   const res = await connection.delete(`/${trainerId}`);
-  if (res.status >= 300) {
+  if (res.status >= 400) {
     throw new HttpError(res);
   }
 }

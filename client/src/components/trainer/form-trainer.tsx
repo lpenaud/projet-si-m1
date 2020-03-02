@@ -18,7 +18,6 @@ export default class FormTrainer extends React.Component<FormTrainerProps> {
 
   valueChanged(e: React.ChangeEvent<HTMLInputElement>) {
     if (this.props.onChange) {
-      console.log(e.currentTarget);
       const name = e.currentTarget.name as keyof ITrainer;
       this.props.onChange(name, e.currentTarget.value);
     }

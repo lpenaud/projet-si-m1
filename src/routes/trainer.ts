@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { Trainer } from "../models";
-import { ILearner } from "../../lib/models";
+import { Trainer, Lesson } from "../models";
+import { ITrainer, ILesson } from "../../lib/models";
 import { Dictionary, IdParam, checkFields, idParamRegex } from "../helpers/routes";
 import MissingFieldsError from "../helpers/http-error/missing-fields";
 
@@ -14,7 +14,7 @@ router
       next(error);
     }
   })
-  .put<IdParam, {}, Partial<Omit<ILearner, "id">>>(idParamRegex, async (req, res, next) => {
+  .put<IdParam, {}, Partial<Omit<ITrainer, "id">>>(idParamRegex, async (req, res, next) => {
     try {
       await Trainer.update(req.body, {
         where: {
@@ -38,15 +38,43 @@ router
       next(error);
     }
   })
-  .post<Dictionary, {}, Omit<ILearner, "id">>("/", async (req, res, next) => {
+  .post<Dictionary, {}, Omit<ITrainer, "id">>("/", async (req, res, next) => {
     const missing = checkFields(req.body, "email", "lastName", "name");
     if (missing.length > 0) {
       next(new MissingFieldsError(missing));
       return;
     }
     try {
-      const learner = await Trainer.create(req.body);
-      res.status(201).json(learner);
+      const trainer = await Trainer.create(req.body);
+      res.status(201).json(trainer);
+    } catch (error) {
+      next(error);
+    }
+  })
+  .put<IdParam, {}, Omit<ILesson, "id">>(`/:id(${idParamRegex})/lessons`, async(req, res, next) => {
+    const missing: string[] = checkFields(req.body, "name");
+    if (missing.length > 0) {
+      next(new MissingFieldsError(missing));
+      return;
+    }
+    try {
+      const lesson = await Lesson.create({
+        trainerId: Number(req.params.id),
+        ...req.body
+      });
+      res.status(201).json(lesson);
+    } catch (error) {
+      next(error);
+    }
+  })
+  .patch<{ id: string; idLesson: string }, {}, Partial<Omit<ILesson, "id">>>(`/:id(${idParamRegex})/lessons/:idLesson(${idParamRegex})`, async(req, res, next) => {
+    try {
+      await Lesson.update(req.body, {
+        where: {
+          id: Number(req.params.idLesson)
+        },
+      });
+      res.sendStatus(200);
     } catch (error) {
       next(error);
     }

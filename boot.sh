@@ -35,4 +35,4 @@ curlApi() {
 
 curlApi trainer POST name Patrick lastName Sebastien email 'patrick.sebastien@email.com'
 curlApi trainer POST name Jack lastName Daniel email 'jack.daniel@email.com'
-curlApi lesson POST name BDD idTrainer 1
+#curlApi lesson POST name BDD idTrainer 1

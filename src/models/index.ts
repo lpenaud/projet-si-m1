@@ -10,7 +10,8 @@ const sequelize = new Sequelize({
   dialect: "mariadb",
   models: [
     Learner,
-    Trainer
+    Trainer,
+    Lesson
   ],
   dialectOptions: {
     timezone,

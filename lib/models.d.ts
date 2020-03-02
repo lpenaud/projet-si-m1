@@ -13,10 +13,11 @@ export interface ITrainer {
   name: string;
   lastName: string;
   email: string;
+  lessons?: ILesson[];
 }
 
 export interface ILesson {
-  _id: any;
+  id: number;
   name: string;
-  idTrainer: number;
+  trainer?: ITrainer;
 }
