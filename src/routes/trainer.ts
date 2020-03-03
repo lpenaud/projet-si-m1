@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { Trainer, Lesson } from "../models";
 import { ITrainer, ILesson } from "../../lib/models";
-import { Dictionary, IdParam, checkFields, idParamRegex } from "../helpers/routes";
+import { Dictionary, IdParam, checkFields, idParamRegex, idExpressRegex } from "../helpers/routes";
 import MissingFieldsError from "../helpers/http-error/missing-fields";
 
 const router = Router();
@@ -51,8 +51,8 @@ router
       next(error);
     }
   })
-  .put<IdParam, {}, Omit<ILesson, "id">>(`/:id(${idParamRegex})/lessons`, async(req, res, next) => {
-    const missing: string[] = checkFields(req.body, "name");
+  .put<IdParam, {}, Omit<ILesson, "id">>(`/:id(${idExpressRegex})/lessons`, async(req, res, next) => {
+    const missing = checkFields(req.body, "name");
     if (missing.length > 0) {
       next(new MissingFieldsError(missing));
       return;
@@ -67,7 +67,7 @@ router
       next(error);
     }
   })
-  .patch<{ id: string; idLesson: string }, {}, Partial<Omit<ILesson, "id">>>(`/:id(${idParamRegex})/lessons/:idLesson(${idParamRegex})`, async(req, res, next) => {
+  .patch<{ id: string; idLesson: string }, {}, Partial<Omit<ILesson, "id">>>(`/:id(${idExpressRegex})/lessons/:idLesson(${idExpressRegex})`, async(req, res, next) => {
     try {
       await Lesson.update(req.body, {
         where: {
