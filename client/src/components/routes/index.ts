@@ -1,6 +1,6 @@
-import Root from "components/routes/root";
 import Trainer from "components/routes/trainer";
 import { ComponentType } from "react";
+import Lessons from "./lessons";
 
 interface Route {
   path: string;
@@ -11,7 +11,7 @@ interface Route {
 const routes: Route[] = [
   {
     path: "/",
-    component: Root,
+    component: Lessons,
     label: "Accueil",
   },
   {
