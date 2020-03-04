@@ -1,6 +1,8 @@
 import { Sequelize } from "sequelize-typescript";
 import { DatabaseConfig, nodeEnv, environments } from "../config";
 import { URL } from "url";
+import { NodeProperty } from "neode";
+import { connect } from "mongoose";
 
 export async function setupMaria(s: Sequelize): Promise<void> {
   try {
@@ -10,15 +12,26 @@ export async function setupMaria(s: Sequelize): Promise<void> {
       await s.authenticate();
     }
   } catch (error) {
-    console.error("Unable to connect to the MariaDB database:", error);
+    console.log("Unable to connect to the MariaDB database:");
+    console.error(error);
   }
 }
 
-export function createMongoUrl(config: DatabaseConfig): string {
-  const url = new URL(`mongodb://${config.host}`);
-  url.port = `${config.port}`;
+export type Neo4jModel<T> = {
+  [P in keyof T]-?: NodeProperty;
+};
+
+export async function connectMongo(config: DatabaseConfig): Promise<void> {
+  const url = new URL(`mongodb://${config.host}:${config.port}/${config.database}`);
   url.username = config.username;
   url.password = config.password;
-  url.pathname = config.database;
-  return url.href;
+  try {
+    await connect(url.href, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+  } catch (error) {
+    console.log("Unable to connect to the mongodb");
+    console.error(error);
+  }
 }

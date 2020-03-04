@@ -1,5 +1,5 @@
 import { Table, Column, AutoIncrement, PrimaryKey, NotNull, Unique, Model, DataType, IsEmail, AllowNull, HasMany } from "sequelize-typescript";
-import { ITrainer, ILesson } from "../../lib/models";
+import { ITrainer, ILesson } from "../../../lib/models";
 import Lesson from "./lesson";
 
 @Table({

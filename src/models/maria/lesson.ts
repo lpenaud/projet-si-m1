@@ -1,6 +1,6 @@
 import { Model, Table, AutoIncrement, PrimaryKey, Column, DataType, BelongsTo, AllowNull, NotNull, ForeignKey } from "sequelize-typescript";
-import { ILesson, ITrainer } from "../../lib/models";
-import { Trainer } from ".";
+import { ILesson, ITrainer } from "../../../lib/models";
+import Trainer from "./trainer";
 
 @Table({
   charset: "utf8",

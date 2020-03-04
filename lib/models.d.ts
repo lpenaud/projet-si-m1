@@ -21,3 +21,9 @@ export interface ILesson {
   name: string;
   trainer?: ITrainer;
 }
+
+export interface IModule {
+  id: number;
+  name: string;
+  submodules?: IModule[];
+}

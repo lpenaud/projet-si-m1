@@ -1,5 +1,5 @@
 import { Table, Model, Column, AutoIncrement, PrimaryKey, Unique, NotNull, DataType, IsEmail, AllowNull } from "sequelize-typescript";
-import { ILearner } from "../../lib/models";
+import { ILearner } from "../../../lib/models";
 
 @Table({
   charset: "utf8",
