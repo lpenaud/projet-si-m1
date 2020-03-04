@@ -22,6 +22,16 @@ export interface DatabaseConfig {
   password: string;
 }
 
+export interface MariaConfig extends DatabaseConfig {
+  logging: boolean;
+}
+
+export interface NeoConfig extends DatabaseConfig {
+  protocol: string;
+  encryption: boolean;
+  enterprise: boolean;
+}
+
 // MongoDB config
 export const mongoConfig: DatabaseConfig = {
   host: process.env.MONGO_HOST || "localhost",
@@ -32,11 +42,22 @@ export const mongoConfig: DatabaseConfig = {
 };
 
 // MariaDB config
-export const mariaConfig: DatabaseConfig & { logging: boolean } = {
+export const mariaConfig: MariaConfig = {
   host: process.env.MARIA_HOST || "localhost",
   port: Number(process.env.MARIA_PORT) || 3306,
   database: process.env.MARIA_DB || "SI",
   username: process.env.MARIA_USER || "root",
   password: process.env.MARIA_PASSWORD || "",
   logging: process.env.MARIA_LOG === "true",
+};
+
+export const neoConfig: NeoConfig = {
+  database: process.env.NEO_DATABASE || "SI",
+  encryption: process.env.NEO_ENCRYPTION === "true",
+  enterprise: process.env.NEO_ENTREPRISE === "true",
+  host: process.env.NEO_HOST || "localhost",
+  password: process.env.NEO_PASSWORD || "neo4j",
+  port: Number(process.env.NEO_PORT) || 7687,
+  protocol: process.env.NEO_PROTOCOL || "neo4j",
+  username: process.env.NEO_USERNAME || "neo4j"
 };
