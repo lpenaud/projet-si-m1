@@ -51,7 +51,7 @@ router
       next(error);
     }
   })
-  .put<IdParam, {}, Omit<ILesson, "id">>(`/:id(${idExpressRegex})/lessons`, async(req, res, next) => {
+  .put<IdParam, {}, Omit<ILesson, "id">>(`/:id(${idExpressRegex})/lessons`, async (req, res, next) => {
     const missing = checkFields(req.body, "name");
     if (missing.length > 0) {
       next(new MissingFieldsError(missing));
@@ -63,18 +63,6 @@ router
         ...req.body
       });
       res.status(201).json(lesson);
-    } catch (error) {
-      next(error);
-    }
-  })
-  .patch<{ id: string; idLesson: string }, {}, Partial<Omit<ILesson, "id">>>(`/:id(${idExpressRegex})/lessons/:idLesson(${idExpressRegex})`, async(req, res, next) => {
-    try {
-      await Lesson.update(req.body, {
-        where: {
-          id: Number(req.params.idLesson)
-        },
-      });
-      res.sendStatus(200);
     } catch (error) {
       next(error);
     }
