@@ -10,3 +10,7 @@ yarn-error.log*
 
 # build
 build
+
+# vagrant
+.vagrant
+*-console.log
