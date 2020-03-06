@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { Lesson, Module } from "../models";
+import { Lesson } from "../models";
 import { idParamRegex, IdParam, checkFields, idExpressRegex } from "../helpers/routes";
-import { ILesson } from "../../lib/models";
+import { ILesson, IModule } from "../../lib/models";
 import MissingFieldsError from "../helpers/http-error/missing-fields";
-import LessonModule from "../models/maria/lesson-module";
+import { Module } from "../models";
 
 const router = Router();
 
@@ -36,17 +36,14 @@ router
       next(error);
     }
   })
-  .put<IdParam & { idModule: number }, {}, {}>(`/:id(${idExpressRegex})/modules/:idModule(${idExpressRegex})`, async (req, res, next) => {
+  .put<IdParam, {}, IModule>(`/:id(${idExpressRegex})/modules`, async (req, res, next) => {
     try {
-      const module = await Module.find(Number(req.params.idModule));
-      if (module) {
-        throw new Error("Module doesn't exist");
+      const missing = checkFields(req.body, "name");
+      if (missing.length > 0) {
+        throw new MissingFieldsError(missing);
       }
-      const lessonModule = new LessonModule({
-        idModule: module.properties().id,
-        idLesson: Number(req.params.id),
-      });
-      await lessonModule.save();
+      const module = new Module(req.body.name);
+      await module.create();
       res.sendStatus(200);
     } catch (error) {
       next(error);

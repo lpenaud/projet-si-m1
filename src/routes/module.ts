@@ -5,15 +5,32 @@ import MissingFieldsError from "../helpers/http-error/missing-fields";
 import { Module } from "../models";
 
 const router = Router();
+const mainModule = new Module();
 
 router
-  .post<{}, {}, Omit<IModule, "id" | "submodules">>("/", async (req, res, next) => {
+  .get("/", async (req, res, next) => {
+    try {
+      const models = await mainModule.match();
+      res.json(models.map(m => m.name));
+    } catch (error) {
+      next(error);
+    }
+  })
+  .get<Pick<IModule, "name">>("/:name", async (req, res, next) => {
+    try {
+      res.json((await new Module(req.params.name).matchSubmodule()).map(m => m.name));
+    } catch (error) {
+      next(error);
+    }
+  })
+  .put<Pick<IModule, "name">, {}, Pick<IModule, "name">>("/:name/submodules", (req, res, next) => {
     try {
       const missing = checkFields(req.body, "name");
       if (missing.length > 0) {
         throw new MissingFieldsError(missing);
       }
-      res.status(201).json(await Module.create(req.body));
+      new Module(req.params.name).addSubmodule(new Module(req.body.name));
+      res.sendStatus(200);
     } catch (error) {
       next(error);
     }

@@ -1,7 +1,6 @@
 import { Sequelize } from "sequelize-typescript";
 import { DatabaseConfig, nodeEnv, environments } from "../config";
 import { URL } from "url";
-import { NodeProperty } from "neode";
 import { connect } from "mongoose";
 
 export async function setupMaria(s: Sequelize): Promise<void> {
@@ -16,10 +15,6 @@ export async function setupMaria(s: Sequelize): Promise<void> {
     console.error(error);
   }
 }
-
-export type Neo4jModel<T> = {
-  [P in keyof T]-?: NodeProperty;
-};
 
 export async function connectMongo(config: DatabaseConfig): Promise<void> {
   const url = new URL(`mongodb://${config.host}:${config.port}/${config.database}`);
