@@ -23,7 +23,6 @@ export interface ILesson {
 }
 
 export interface IModule {
-  id: number;
   name: string;
   submodules?: IModule[];
 }
