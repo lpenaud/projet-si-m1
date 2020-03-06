@@ -26,10 +26,8 @@ export interface MariaConfig extends DatabaseConfig {
   logging: boolean;
 }
 
-export interface NeoConfig extends DatabaseConfig {
+export interface NeoConfig extends Omit<DatabaseConfig, "database"> {
   protocol: string;
-  encryption: boolean;
-  enterprise: boolean;
 }
 
 // MongoDB config
@@ -52,9 +50,6 @@ export const mariaConfig: MariaConfig = {
 };
 
 export const neoConfig: NeoConfig = {
-  database: process.env.NEO_DATABASE || "SI",
-  encryption: process.env.NEO_ENCRYPTION === "true",
-  enterprise: process.env.NEO_ENTREPRISE === "true",
   host: process.env.NEO_HOST || "localhost",
   password: process.env.NEO_PASSWORD || "neo4j",
   port: Number(process.env.NEO_PORT) || 7687,
