@@ -1,5 +1,12 @@
 # Projet SI M1
 
+Start :
+
+```
+$ yarn install
+$ yarn start
+```
+
 ## Environement
 
 You can create `.env` to set environement variables.
@@ -21,12 +28,20 @@ You can create `.env` to set environement variables.
 
 ### MariaDB variables
 
-* `MARIA_HOST`: Hostname of mongodb server (by default `localhost`)
-* `MARIA_PORT`: port of mongodb server (by default `3306`)
-* `MARIA_DB`: Database to use in mongodb server (by default `SI`)
+* `MARIA_HOST`: Hostname of mariadb server (by default `localhost`)
+* `MARIA_PORT`: port of mariadb server (by default `3306`)
+* `MARIA_DB`: Database to use in mariadb server (by default `SI`)
 * `MARIA_USER`: Username to use to connect at the database (by default `root`)
 * `MARIA_PASSWORD`: Database user password (not required)
 * `MARIA_LOG` : Set to `true` if you want to log every queries (not required)
+
+### Neo4j variables
+
+* `NEO_HOST`: Hostname of neo4j server (by default `localhost`)
+* `NEO_PORT`: port of neo4j server (by default `7687`)
+* `NEO_USER`: Username to use to connect at the database (by default `neo4j`)
+* `NEO_PASSWORD`: Database user password (by default `neo4j`)
+* `NEO_PROTOCOL` : Protocol to use to deal with neo4j server (by default `bolt`)
 
 ## Scripts
 
