@@ -38,4 +38,7 @@ curlApi trainer POST name Jack lastName Daniel email 'jack.daniel@email.com'
 curlApi "trainer/1/lessons" PUT name "TILL-A"
 curlApi "trainer/1/lessons" PUT name "LSE"
 curlApi "lesson/1" PATCH name "SIIA"
-curlApi "module" POST name "C"
+curlApi "lesson/1/modules" PUT name "POO"
+curlApi "lesson/1/modules" PUT name "Java"
+curlApi "lesson/2/modules" PUT name "C"
+curlApi "module/POO/submodules" PUT name "Java"
