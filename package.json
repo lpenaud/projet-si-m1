@@ -35,7 +35,7 @@
     "mariadb": "^2.2.0",
     "mongoose": "^5.8.11",
     "morgan": "^1.9.1",
-    "neode": "^0.4.2",
+    "neo4j-driver": "^4.0.1",
     "nodemon": "^2.0.2",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^5.21.4",
