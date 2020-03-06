@@ -58,6 +58,6 @@ export const neoConfig: NeoConfig = {
   host: process.env.NEO_HOST || "localhost",
   password: process.env.NEO_PASSWORD || "neo4j",
   port: Number(process.env.NEO_PORT) || 7687,
-  protocol: process.env.NEO_PROTOCOL || "neo4j",
+  protocol: process.env.NEO_PROTOCOL || "bolt",
   username: process.env.NEO_USERNAME || "neo4j"
 };
